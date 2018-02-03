@@ -31,17 +31,9 @@ class FreeTicketsForm extends React.Component {
   }
 
   render() {
-
-    return (
-      <div className="FreeTicketsForm container">
-        <h2>FreeTickets</h2>
-        <div className="row">
-          <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" onChange={this.handleCheckboxChange} value={this.state.show} />
-            <label className="form-check-label">Force free tickets</label>
-          </div>
-        </div>
-        { this.props.isFreeSpinsTicket || this.state.show ?
+    let fsForm = null;
+    if (this.props.isFreeSpinsTicket || this.state.show) {
+      fsForm = (
         <div>
           <div className="row">
             <div className="col-md-2"> From <input className="form-control" key="from" name="from" type="number" onChange={this.onChangeHandler.bind(this)} /></div>
@@ -59,8 +51,20 @@ class FreeTicketsForm extends React.Component {
 
           <p>"FreeTickets": &#123;"Id":1, "BetLine":1.0, "Type":{this.state.type}, "To":{this.state.to}, "From": {this.state.from},"Win":{this.state.win}&#125;</p>
           <p>"ScatterPays": &#123;"Icon":{this.state.icon}, "WinAmount":{this.state.winAmount}, "Times":{this.state.times}&#125;</p>
-        </div> : null
-        }
+        </div>
+      )
+    }
+
+    return (
+      <div className="FreeTicketsForm container">
+        <h2>FreeTickets</h2>
+        <div className="row">
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" onChange={this.handleCheckboxChange} value={this.state.show} />
+            <label className="form-check-label">Force free tickets</label>
+          </div>
+        </div>
+        {fsForm}
       </div>
     );
   }

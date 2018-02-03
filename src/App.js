@@ -10,7 +10,8 @@ import FreeTicketsForm from './Components/FreeTicketsForm/FreeTicketsForm';
 class App extends Component {
 
   state = {
-    isFreeSpinsTicket: false
+    isFreeSpinsTicket: false,
+    isBonusTicket: false
   }
 
   handleIsFreeSpinsTicket = (e) => {

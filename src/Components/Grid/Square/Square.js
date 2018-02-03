@@ -13,11 +13,10 @@ class Square extends React.Component {
     }
 
     render() {
-
         return (
             <div className="Square form-group">
-                <select placeholder="Symbol" className="form-control" onChange={this._onChange.bind(this)} >
-                 {this.state.options.map((x,i) => <option key={i}>{x}</option>)}
+                <select value={this.state.options[this.props.currentValue]} placeholder="Symbol" className="form-control" onChange={this._onChange.bind(this)} >
+                 {this.state.options.map((x,i) => <option key={i}>{x} </option>)}
                 </select>
             </div>
         );
